@@ -35,7 +35,14 @@ public class bl_FloatingTextManager : MonoBehaviour
     public void InstanceFloatingText(FloatingText data)
     {
         bl_FloatingText floatingText = GetTextInstance(data);
-        floatingText.Set(data);
+        if (data.IsRemade)
+        {
+            floatingText.Set_Remade(data);
+        }
+        else
+        {
+            floatingText.Set(data);
+        }
         onNewText?.Invoke();
     }
 

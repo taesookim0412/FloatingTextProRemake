@@ -23,6 +23,7 @@ public struct FloatingText
     public FloatingTextFlags Flags { get; private set; }
 
     public InternalProps InternalOnly;
+    public bool IsRemade;
 
     public struct InternalProps
     {
@@ -33,7 +34,7 @@ public struct FloatingText
 
     public FloatingText(Transform target, Vector3 position, string text, Color textColor, Vector3 positionOffset, 
         int extraTextSize, int reuseTimes, float outlineSize, Color outlineColor, FloatingTextSettings settings, 
-        Action finishCallback, FloatingTextFlags flags, InternalProps internalOnly)
+        Action finishCallback, FloatingTextFlags flags, InternalProps internalOnly, bool isRemade)
     {
         Target = target;
         Position = position;
@@ -48,6 +49,7 @@ public struct FloatingText
         FinishCallback = finishCallback;
         Flags = flags;
         InternalOnly = internalOnly;
+        IsRemade = isRemade;
     }
 
 
@@ -71,6 +73,7 @@ public struct FloatingText
         InternalOnly = new InternalProps();
         FinishCallback = null;
         Flags = FloatingTextFlags.None;
+        IsRemade = false;
     }
 
     /// <summary>

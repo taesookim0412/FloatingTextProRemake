@@ -86,7 +86,7 @@ namespace Lovatto.FloatingTextAsset {
             FloatingText floatingText = new FloatingText(
                 target: ray.transform,
                 position: ray.point,
-                text: $"{Random.Range(10, 90)}",
+                text: $"{Random.Range(500, 5000)}",
                 textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
                 positionOffset: Vector3.zero,
                 extraTextSize: Random.Range(-10, 10),
@@ -96,7 +96,8 @@ namespace Lovatto.FloatingTextAsset {
                 floatingTextSettings,
                 finishCallback: null,
                 flags: FloatingTextFlags.StickAtOriginPosition,
-                internalOnly: new FloatingText.InternalProps());
+                internalOnly: new FloatingText.InternalProps(),
+                isRemade: true);
             floatingText.Show();
 
             //new FloatingText($"{Random.Range(10, 90)}")

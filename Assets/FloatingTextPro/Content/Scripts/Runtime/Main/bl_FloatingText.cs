@@ -56,6 +56,26 @@ namespace Lovatto.FloatingTextAsset
             StartCoroutine(DoSequence(data));
         }
 
+        public void Set_Remade(FloatingText data)
+        {
+            uiText.text = data.Text;
+            uiText.color = data.TextColor;
+            uiText.fontSize = (int)uiText.fontSize + data.ExtraTextSize;
+
+            if (data.OutlineColor != Color.clear) uiText.outlineColor = data.OutlineColor;
+            if (data.OutlineSize != -1) uiText.outlineSize = data.OutlineSize;
+
+            gameObject.SetActive(true);
+
+            //set the start position
+            RectTransformRef.position = bl_FloatingTextManager.GetScreenPositionFromWorldPosition(data.GetPosition());
+            data.InternalOnly.InitRectPosition = RectTransformRef.position;
+            targetScreenPosition = RectTransformRef.position;
+
+            StopAllCoroutines();
+            StartCoroutine(DoSequence(data));
+        }
+
         /// <summary>
         /// Check if we can reuse this text instance
         /// </summary>
