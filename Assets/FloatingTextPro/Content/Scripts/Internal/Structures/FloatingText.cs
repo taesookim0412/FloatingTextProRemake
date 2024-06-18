@@ -31,6 +31,26 @@ public struct FloatingText
         public bool InvertHorizontalDirection { get; set; }
     }
 
+    public FloatingText(Transform target, Vector3 position, string text, Color textColor, Vector3 positionOffset, 
+        int extraTextSize, int reuseTimes, float outlineSize, Color outlineColor, FloatingTextSettings settings, 
+        Action finishCallback, FloatingTextFlags flags, InternalProps internalOnly)
+    {
+        Target = target;
+        Position = position;
+        Text = text;
+        TextColor = textColor;
+        PositionOffset = positionOffset;
+        ExtraTextSize = extraTextSize;
+        ReuseTimes = reuseTimes;
+        OutlineSize = outlineSize;
+        OutlineColor = outlineColor;
+        Settings = settings;
+        FinishCallback = finishCallback;
+        Flags = flags;
+        InternalOnly = internalOnly;
+    }
+
+
     /// <summary>
     /// 
     /// </summary>

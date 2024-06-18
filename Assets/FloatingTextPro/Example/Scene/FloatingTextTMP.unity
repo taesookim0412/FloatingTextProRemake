@@ -1776,6 +1776,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!135 &299959624
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4155,6 +4160,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!135 &744438324
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4931,6 +4941,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!135 &815986135
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5560,6 +5575,10 @@ PrefabInstance:
       propertyPath: m_playerCamera
       value: 
       objectReference: {fileID: 2065523261}
+    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
+      propertyPath: FloatingTextSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
     - target: {fileID: 2043791950599946339, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -6202,6 +6221,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!1 &1240447661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6948,9 +6972,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onHit:
     m_PersistentCalls:
+      m_Calls: []
+  onHit2:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1533018442}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: Lovatto.FloatingTextAsset.bl_FloatingTextTest,
+          Assembly-CSharp
         m_MethodName: LeagueOfLegends
         m_Mode: 0
         m_Arguments:
@@ -6961,6 +6989,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  FloatingTextPrefab: {fileID: 1349822499584374776, guid: c5210423697e7064ea2485b31831a3a1, type: 3}
+  FloatingTextSettings: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
 --- !u!1 &1395437269
 GameObject:
   m_ObjectHideFlags: 0
@@ -7701,6 +7731,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!135 &1610810245
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8521,6 +8556,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!1 &1686604274
 GameObject:
   m_ObjectHideFlags: 0
@@ -8657,6 +8697,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!1 &1754689526
 GameObject:
   m_ObjectHideFlags: 0
@@ -8950,6 +8995,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!135 &1818953349
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9733,6 +9783,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHit2:
+    m_PersistentCalls:
+      m_Calls: []
+  FloatingTextPrefab: {fileID: 0}
+  FloatingTextSettings: {fileID: 0}
 --- !u!1 &2029186895
 GameObject:
   m_ObjectHideFlags: 0

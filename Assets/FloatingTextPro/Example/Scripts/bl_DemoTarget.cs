@@ -8,8 +8,13 @@ namespace Lovatto.FloatingTextAsset
     public class bl_DemoTarget : MonoBehaviour
     {
         public UEvent onHit;
-       
-        [System.Serializable]public class UEvent : UnityEvent<RaycastHit> { }
+        public UEvent2 onHit2;
+        [SerializeField]
+        private bl_FloatingText FloatingTextPrefab;
+        [SerializeField]
+        private FloatingTextSettings FloatingTextSettings;
+        [System.Serializable] public class UEvent : UnityEvent<RaycastHit> { }
+        [System.Serializable]public class UEvent2 : UnityEvent<RaycastHit, bl_FloatingText, FloatingTextSettings> { }
         private Material mat;
 
         private void Start()
@@ -20,9 +25,17 @@ namespace Lovatto.FloatingTextAsset
         public void OnHit(RaycastHit hitTransform)
         {
             onHit?.Invoke(hitTransform);
+            onHit2?.Invoke(hitTransform, FloatingTextPrefab, FloatingTextSettings);
             StopAllCoroutines();
             StartCoroutine(HitEffect());
         }
+        //public void OnHit(RaycastHit hitTransform, bl_FloatingText floatingText, FloatingTextSettings floatingTextSettings)
+        //{
+        //    onHit2?.Invoke(hitTransform, FloatingTextPrefab, FloatingTextSettings);
+        //    StopAllCoroutines();
+        //    StartCoroutine(HitEffect());
+        //}
+
 
         IEnumerator HitEffect()
         {

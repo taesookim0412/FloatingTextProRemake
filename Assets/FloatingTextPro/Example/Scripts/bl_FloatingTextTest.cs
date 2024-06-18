@@ -77,17 +77,36 @@ namespace Lovatto.FloatingTextAsset {
               .Show();
         }
 
-        public void LeagueOfLegends(RaycastHit ray)
+        public void LeagueOfLegends(RaycastHit ray, bl_FloatingText floatingTextPrefab, FloatingTextSettings floatingTextSettings)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[3]);
-            new FloatingText($"{Random.Range(10, 90)}")
-              .SetSettings("lol")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .StickAtOriginWorldPosition()
-              .SetTextColor(new Color(0.1462264f, 0.8359416f, 1f, 1))
-              .SetExtraTextSize(Random.Range(-10,10))//this should be based on the amount of damage
-              .Show();
+            // This can't be changed because the demo will raycast 
+            bl_FloatingTextManager.Instance.ChangeTextPrefab(floatingTextPrefab);
+
+
+            FloatingText floatingText = new FloatingText(
+                target: ray.transform,
+                position: ray.point,
+                text: $"{Random.Range(10, 90)}",
+                textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
+                positionOffset: Vector3.zero,
+                extraTextSize: Random.Range(-10, 10),
+                reuseTimes: 0,
+                outlineSize: -1,
+                outlineColor: Color.clear,
+                floatingTextSettings,
+                finishCallback: null,
+                flags: FloatingTextFlags.StickAtOriginPosition,
+                internalOnly: new FloatingText.InternalProps());
+            floatingText.Show();
+
+            //new FloatingText($"{Random.Range(10, 90)}")
+            //  .SetSettings("lol")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .StickAtOriginWorldPosition()
+            //  .SetTextColor(new Color(0.1462264f, 0.8359416f, 1f, 1))
+            //  .SetExtraTextSize(Random.Range(-10, 10))//this should be based on the amount of damage
+            //  .Show();
         }
 
         public void CandyCrush(RaycastHit ray)

@@ -7,6 +7,7 @@ public class bl_FloatingTextManager : MonoBehaviour
 {
     #region Public members
     [Header("Settings")]
+    public FloatingTextSettings FloatingTextSettings;
     public int maxTextsInstances = 30;
     public UEvent onNewText;
 
@@ -21,12 +22,11 @@ public class bl_FloatingTextManager : MonoBehaviour
     [SerializeField] private bl_FloatingText textTemplate = null;
     #endregion
 
-    #region Private members   
     private List<bl_FloatingText> textsPool = new List<bl_FloatingText>();
     private Dictionary<Transform, bl_FloatingText> reusedTexts = new Dictionary<Transform, bl_FloatingText>();
     private int currentPoolID = 0;
-    [System.Serializable]public class UEvent : UnityEvent { }
-    #endregion
+    [System.Serializable]
+    public class UEvent : UnityEvent { }
 
     /// <summary>
     /// Instance a new floating text with the given data
