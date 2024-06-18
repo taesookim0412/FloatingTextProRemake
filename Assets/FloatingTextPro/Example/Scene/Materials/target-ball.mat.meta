@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9753635882c5e684da83c7e241510295
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Example/Scene/Materials/target-ball.mat
+  uploadId: 446700

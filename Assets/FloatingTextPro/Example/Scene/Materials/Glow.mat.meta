@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a0463126df8a2be4783f3a958053d96e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Example/Scene/Materials/Glow.mat
+  uploadId: 446700

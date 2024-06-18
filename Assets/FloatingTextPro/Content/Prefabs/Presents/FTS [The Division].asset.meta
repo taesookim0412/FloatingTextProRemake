@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 90f10fcd3b73b1e48bd6235397b409d3
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Content/Prefabs/Presents/FTS [The Division].asset
+  uploadId: 446700

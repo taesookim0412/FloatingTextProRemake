@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 925f080c734b74e438560a85e1e64fa8
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/ReadMe.txt
+  uploadId: 446700

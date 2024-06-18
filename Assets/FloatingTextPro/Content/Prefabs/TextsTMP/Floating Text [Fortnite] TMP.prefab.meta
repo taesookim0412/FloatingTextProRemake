@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 70c0dea8156bc9f45aadcd82005a4c81
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Content/Prefabs/TextsTMP/Floating Text [Fortnite]
+    TMP.prefab
+  uploadId: 446700

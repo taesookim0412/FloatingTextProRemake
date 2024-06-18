@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a318b5d4c6a4ff440bba2ebd223c7fbe
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/FloatingTextPro-TMP.unitypackage
+  uploadId: 446700

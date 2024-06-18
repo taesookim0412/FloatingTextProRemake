@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 738ea57a59d0c264b9ad4041682b3e87
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Content/Prefabs/Texts/Floating Text [Apex].prefab
+  uploadId: 446700

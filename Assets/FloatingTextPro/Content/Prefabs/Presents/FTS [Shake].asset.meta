@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4462bdab3c228ba4dbda1c315574949c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Content/Prefabs/Presents/FTS [Shake].asset
+  uploadId: 446700

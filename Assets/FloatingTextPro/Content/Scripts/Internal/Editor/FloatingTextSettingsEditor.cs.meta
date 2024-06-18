@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: ea8759ba5c437df4591ce2534ab1fe89
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Content/Scripts/Internal/Editor/FloatingTextSettingsEditor.cs
+  uploadId: 446700

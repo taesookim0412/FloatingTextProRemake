@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7f6c17450d3855348965d3c720ccff38
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Example/Scene/Materials/Protons.controller
+  uploadId: 446700

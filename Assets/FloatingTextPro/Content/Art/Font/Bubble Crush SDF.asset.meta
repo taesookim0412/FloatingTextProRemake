@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6aae3913adfcff34f960fe239375386c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 200661
+  packageName: 'Floating Text Pro: UGUI / TMP support'
+  packageVersion: 1.0
+  assetPath: Assets/FloatingTextPro/Content/Art/Font/Bubble Crush SDF.asset
+  uploadId: 446700
