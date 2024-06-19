@@ -163,7 +163,7 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                     StartSequenceCompleted = true;
                 }
             }
-            if (!StaticSequenceCompleted)
+            else if (!StaticSequenceCompleted)
             {
                 bool completeStaticSequence = false;
                 if (FloatingTextSettings.StaticDuration > 0f)
@@ -199,7 +199,7 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                     StaticSequenceCompleted = true;
                 }
             }
-            if (!FloatSequenceCompleted)
+            else if (!FloatSequenceCompleted)
             {
                 bool completeFloatSequence = false;
 
@@ -216,7 +216,7 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                         {
                             if (FloatingTextSettings.StaticDuration > 0f)
                             {
-                                movePercentage = PercentageAccumulate * ElapsedDuration;
+                                movePercentage = PercentageAccumulate;
                             }
                             else
                             {
