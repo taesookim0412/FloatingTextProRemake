@@ -79,12 +79,12 @@ public struct FloatingText
     /// <summary>
     /// Prepare and show the floating text on the screen
     /// </summary>
-    public void Show()
+    public bl_FloatingText Show()
     {
-        if (string.IsNullOrEmpty(Text)) return;
+        if (string.IsNullOrEmpty(Text)) return null;
 
         if (Settings == null) Settings = bl_FloatingTextManagerSettings.Instance.floatingTextSettings[0].Settings;
-        bl_FloatingTextManager.Instance.InstanceFloatingText(this);
+        return bl_FloatingTextManager.Instance.InstanceFloatingText(this);
     }
 
     /// <summary>

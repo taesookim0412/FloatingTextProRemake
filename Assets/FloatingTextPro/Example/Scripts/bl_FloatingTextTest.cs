@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.FloatingTextPro.Content.Scripts.Runtime.Main;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Lovatto.FloatingTextAsset {
 
         public Camera testCamera;
         public bl_FloatingText[] textPrefabs;
+        public bl_FloatingTextManager FloatingTextManager;
 
         private float lastRay = 0;
 
@@ -77,28 +79,29 @@ namespace Lovatto.FloatingTextAsset {
               .Show();
         }
 
-        public void LeagueOfLegends(RaycastHit ray, bl_FloatingText floatingTextPrefab, FloatingTextSettings floatingTextSettings)
+        public void LeagueOfLegends(RaycastHit ray)
         {
+            FloatingTextManager.AddFloatingTextObserver(FloatingTextType.LeagueOfLegends, ray);
             // This can't be changed because the demo will raycast 
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(floatingTextPrefab);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(floatingTextPrefab);
 
 
-            FloatingText floatingText = new FloatingText(
-                target: ray.transform,
-                position: ray.point,
-                text: $"{Random.Range(500, 5000)}",
-                textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
-                positionOffset: Vector3.zero,
-                extraTextSize: Random.Range(-10, 10),
-                reuseTimes: 0,
-                outlineSize: -1,
-                outlineColor: Color.clear,
-                floatingTextSettings,
-                finishCallback: null,
-                flags: FloatingTextFlags.StickAtOriginPosition,
-                internalOnly: new FloatingText.InternalProps(),
-                isRemade: true);
-            floatingText.Show();
+            //FloatingText floatingText = new FloatingText(
+            //    target: ray.transform,
+            //    position: ray.point,
+            //    text: $"{Random.Range(500, 5000)}",
+            //    textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
+            //    positionOffset: Vector3.zero,
+            //    extraTextSize: Random.Range(-10, 10),
+            //    reuseTimes: 0,
+            //    outlineSize: -1,
+            //    outlineColor: Color.clear,
+            //    floatingTextSettings,
+            //    finishCallback: null,
+            //    flags: FloatingTextFlags.StickAtOriginPosition,
+            //    internalOnly: new FloatingText.InternalProps(),
+            //    isRemade: true);
+            //floatingText.Show();
 
             //new FloatingText($"{Random.Range(10, 90)}")
             //  .SetSettings("lol")

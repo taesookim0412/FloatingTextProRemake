@@ -1776,11 +1776,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!135 &299959624
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4160,11 +4155,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!135 &744438324
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4941,11 +4931,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!135 &815986135
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5035,6 +5020,17 @@ Transform:
   - {fileID: 134112661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831877480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
+  m_PrefabInstance: {fileID: 1006536915}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5012151986ece64aa3664607e0d981b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &844957869
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,6 +5573,22 @@ PrefabInstance:
       objectReference: {fileID: 2065523261}
     - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
       propertyPath: FloatingTextSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
+    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
+      propertyPath: FloatingTextPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
+      propertyPath: FloatingTextSettings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
+      propertyPath: 'FloatingTextPrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1349822499584374776, guid: c5210423697e7064ea2485b31831a3a1, type: 3}
+    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
+      propertyPath: 'FloatingTextSettings.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
     - target: {fileID: 2043791950599946339, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
@@ -6221,11 +6233,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!1 &1240447661
 GameObject:
   m_ObjectHideFlags: 0
@@ -6972,9 +6979,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onHit:
     m_PersistentCalls:
-      m_Calls: []
-  onHit2:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1533018442}
         m_TargetAssemblyTypeName: Lovatto.FloatingTextAsset.bl_FloatingTextTest,
@@ -6989,8 +6993,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  FloatingTextPrefab: {fileID: 1349822499584374776, guid: c5210423697e7064ea2485b31831a3a1, type: 3}
-  FloatingTextSettings: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
 --- !u!1 &1395437269
 GameObject:
   m_ObjectHideFlags: 0
@@ -7509,6 +7511,7 @@ MonoBehaviour:
   - {fileID: 1349822499584374776, guid: c5210423697e7064ea2485b31831a3a1, type: 3}
   - {fileID: 6209885940444936380, guid: 2151c38b667e7264d8c241875104a9dd, type: 3}
   - {fileID: 1679497025157204069, guid: 41efb4f571b405441b19bca328c31321, type: 3}
+  FloatingTextManager: {fileID: 831877480}
 --- !u!4 &1533018443
 Transform:
   m_ObjectHideFlags: 0
@@ -7731,11 +7734,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!135 &1610810245
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8556,11 +8554,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!1 &1686604274
 GameObject:
   m_ObjectHideFlags: 0
@@ -8697,11 +8690,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!1 &1754689526
 GameObject:
   m_ObjectHideFlags: 0
@@ -8995,11 +8983,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!135 &1818953349
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9783,11 +9766,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHit2:
-    m_PersistentCalls:
-      m_Calls: []
-  FloatingTextPrefab: {fileID: 0}
-  FloatingTextSettings: {fileID: 0}
 --- !u!1 &2029186895
 GameObject:
   m_ObjectHideFlags: 0
