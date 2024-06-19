@@ -120,14 +120,7 @@ public class bl_FloatingTextManager : MonoBehaviour
     public bl_FloatingText InstanceFloatingText(FloatingText data)
     {
         bl_FloatingText floatingText = GetTextInstance(data);
-        if (data.IsRemade)
-        {
-            floatingText.Set_Remade(data);
-        }
-        else
-        {
-            floatingText.Set(data);
-        }
+        floatingText.Set(data);
         onNewText?.Invoke();
         return floatingText;
     }
@@ -136,7 +129,7 @@ public class bl_FloatingTextManager : MonoBehaviour
     /// Pool text instance to instantiate only the required texts
     /// </summary>
     /// <returns></returns>
-    private bl_FloatingText GetTextInstance(FloatingText data)
+    public bl_FloatingText GetTextInstance(FloatingText data)
     {
         if((data.ReuseTimes > 0 || data.ReuseTimes == -2) && data.Target != null)
         {

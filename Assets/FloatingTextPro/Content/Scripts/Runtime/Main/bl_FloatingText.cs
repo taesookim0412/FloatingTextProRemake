@@ -67,13 +67,9 @@ namespace Lovatto.FloatingTextAsset
 
             gameObject.SetActive(true);
 
-            //set the start position
-            RectTransformRef.position = bl_FloatingTextManager.GetScreenPositionFromWorldPosition(data.GetPosition());
-            data.InternalOnly.InitRectPosition = RectTransformRef.position;
-            targetScreenPosition = RectTransformRef.position;
 
-            StopAllCoroutines();
-            StartCoroutine(DoSequence(data));
+            //StopAllCoroutines();
+            //StartCoroutine(DoSequence(data));
         }
 
         /// <summary>
