@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using Assets.FloatingTextPro.Content.Scripts.Runtime.Main;
 using System.Linq;
 using System;
+using Assets.Crafter.Components.Models;
 
 public class bl_FloatingTextManager : MonoBehaviour
 {
@@ -36,12 +37,18 @@ public class bl_FloatingTextManager : MonoBehaviour
     public Dictionary<FloatingTextType, bl_FloatingText> FloatingTextPrefabsDict;
     [HideInInspector]
     public Dictionary<FloatingTextType, FloatingTextSettings> FloatingTextSettingsDict;
+    [HideInInspector]
+    public FloatingTextType SelectedFloatingTextType;
+    [HideInInspector]
+    public Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>> FloatingTextInstancePools;
     [System.Serializable]
     public class UEvent : UnityEvent { }
 
     public void OnEnable()
     {
         FloatingTextObserverProps = new FloatingTextObserverProps(this);
+
+        Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>> floatingTextInstancePools = new Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>>(1);
         Dictionary<FloatingTextType, bl_FloatingText>  floatingTextPrefabsDict = new Dictionary<FloatingTextType, bl_FloatingText>(1);
         for (int i = 0; i < FloatingTextPrefabs.Length; i++)
         {
@@ -61,8 +68,11 @@ public class bl_FloatingTextManager : MonoBehaviour
             }
 
             floatingTextPrefabsDict[prefabType] = FloatingTextPrefabs[i];
+            floatingTextInstancePools[prefabType] = new PoolBagDco<bl_FloatingText>(FloatingTextPrefabs[i], 
+                capacity: 30);
         }
         FloatingTextPrefabsDict = floatingTextPrefabsDict;
+        FloatingTextInstancePools = floatingTextInstancePools;
 
         Dictionary<FloatingTextType, FloatingTextSettings> floatingTextSettingsDict = new Dictionary<FloatingTextType, FloatingTextSettings>(1);
         for (int i = 0; i < FloatingTextSettings.Length; i++)

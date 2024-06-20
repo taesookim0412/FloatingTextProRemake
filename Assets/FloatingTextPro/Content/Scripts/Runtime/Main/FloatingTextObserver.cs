@@ -1,4 +1,5 @@
-﻿using Lovatto.FloatingTextAsset;
+﻿using Assets.Crafter.Components.Models;
+using Lovatto.FloatingTextAsset;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,7 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
         private Transform FloatingTextInstanceTransform;
 
         private FloatingTextSettings FloatingTextSettings;
+        private PoolBagDco<bl_FloatingText> PoolBag;
 
         private Vector3 TargetScreenPosition;
         private float SequenceTime;
@@ -59,12 +61,13 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
             if (!FloatingTextSet)
             {
                 if (Props.FloatingTextManager.FloatingTextPrefabsDict.TryGetValue(FloatingTextType, out bl_FloatingText floatingTextPrefab) && 
-                    Props.FloatingTextManager.FloatingTextSettingsDict.TryGetValue(FloatingTextType, out FloatingTextSettings))
+                    Props.FloatingTextManager.FloatingTextSettingsDict.TryGetValue(FloatingTextType, out FloatingTextSettings) &&
+                    Props.FloatingTextManager.FloatingTextInstancePools.TryGetValue(FloatingTextType, out PoolBag))
                 {
                     switch (FloatingTextType)
                     {
                         case FloatingTextType.LeagueOfLegends:
-                            Props.FloatingTextManager.ChangeTextPrefab(floatingTextPrefab);
+                            // Props.FloatingTextManager.ChangeTextPrefab(floatingTextPrefab);
 
                             FloatingText = new FloatingText(
                                 target: Ray.transform,
@@ -94,7 +97,8 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                 }
 
                 FloatingTextSet = true;
-                FloatingTextInstance = Props.FloatingTextManager.GetTextInstance(FloatingText);
+                FloatingTextInstance = PoolBag.InstantiatePooled(Props.FloatingTextManager.parentReference);
+
                 FloatingTextInstanceTransform = FloatingTextInstance.transform;
                 FloatingTextInstance.Set_Remade(FloatingText);
 
@@ -299,6 +303,7 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                     //    Props.FloatingTextManager.RemoveFromReused(FloatingText);
                     //}
                     //FloatingTextInstance.UseTimes = -1;
+                    PoolBag.ReturnPooled(FloatingTextInstance);
                     FloatingTextInstance.gameObject.SetActive(false);
                 }
             }
