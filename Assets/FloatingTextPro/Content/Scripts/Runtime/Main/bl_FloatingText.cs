@@ -60,7 +60,7 @@ namespace Lovatto.FloatingTextAsset
         {
             uiText.text = data.Text;
             uiText.color = data.TextColor;
-            uiText.fontSize = (int)uiText.fontSize + data.ExtraTextSize;
+            uiText.fontSize = data.TextSize;
 
             if (data.OutlineColor != Color.clear) uiText.outlineColor = data.OutlineColor;
             if (data.OutlineSize != -1) uiText.outlineSize = data.OutlineSize;

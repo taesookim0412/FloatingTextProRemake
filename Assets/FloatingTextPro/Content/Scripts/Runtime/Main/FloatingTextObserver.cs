@@ -70,7 +70,7 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                                 text: $"{UnityEngine.Random.Range(500, 5000)}",
                                 textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
                                 positionOffset: Vector3.zero,
-                                extraTextSize: UnityEngine.Random.Range(-10, 10),
+                                textSize: UnityEngine.Random.Range(30, 50),
                                 reuseTimes: 0,
                                 outlineSize: -1,
                                 outlineColor: Color.clear,
@@ -244,6 +244,10 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                     FloatSequenceCompleted = true;
 
                     // temp, complete
+                    if (FloatingTextInstance.UseTimes == -2)
+                    {
+                        Props.FloatingTextManager.RemoveFromReused(FloatingText);
+                    }
                     FloatingTextInstance.UseTimes = -1;
                     FloatingTextInstance.gameObject.SetActive(false);
                 }

@@ -14,7 +14,9 @@ public struct FloatingText
     public string Text { get; set; }
     public Color TextColor { get; private set; }
     public Vector3 PositionOffset { get; private set; }
+    // Not used in Remade, replaced with TextSize.
     public int ExtraTextSize { get; private set; }
+    public int TextSize { get; private set; }
     public int ReuseTimes { get; private set; }
     public float OutlineSize { get; private set; }
     public Color OutlineColor { get; private set; }
@@ -33,7 +35,7 @@ public struct FloatingText
     }
 
     public FloatingText(Transform target, Vector3 position, string text, Color textColor, Vector3 positionOffset, 
-        int extraTextSize, int reuseTimes, float outlineSize, Color outlineColor, FloatingTextSettings settings, 
+        int textSize, int reuseTimes, float outlineSize, Color outlineColor, FloatingTextSettings settings, 
         Action finishCallback, FloatingTextFlags flags, InternalProps internalOnly, bool isRemade)
     {
         Target = target;
@@ -41,7 +43,7 @@ public struct FloatingText
         Text = text;
         TextColor = textColor;
         PositionOffset = positionOffset;
-        ExtraTextSize = extraTextSize;
+        TextSize = textSize;
         ReuseTimes = reuseTimes;
         OutlineSize = outlineSize;
         OutlineColor = outlineColor;
@@ -50,6 +52,8 @@ public struct FloatingText
         Flags = flags;
         InternalOnly = internalOnly;
         IsRemade = isRemade;
+
+        ExtraTextSize = 0;
     }
 
 
@@ -65,7 +69,7 @@ public struct FloatingText
 
         TextColor = Color.white;
         PositionOffset = Vector3.zero;
-        ExtraTextSize = 0;
+        TextSize = 0;
         ReuseTimes = 0;
         Settings = null;
         OutlineColor = Color.clear;
@@ -74,6 +78,8 @@ public struct FloatingText
         FinishCallback = null;
         Flags = FloatingTextFlags.None;
         IsRemade = false;
+
+        ExtraTextSize = 0;
     }
 
     /// <summary>
