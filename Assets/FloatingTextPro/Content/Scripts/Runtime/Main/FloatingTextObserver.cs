@@ -28,7 +28,6 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
         private FloatingText FloatingText;
         private bl_FloatingText FloatingTextInstance;
         private Transform FloatingTextInstanceTransform;
-        private bool FloatingTextSet = false;
 
         private FloatingTextSettings FloatingTextSettings;
 
@@ -36,14 +35,17 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
         private float SequenceTime;
         private float PercentageAccumulate;
         private float FloatDurationPercentage;
-        private float FinishSequencePercentage;
+        private float FinishDurationPercentage;
+        private float FinishSequenceDivMultiplier;
         private float BaseAlpha;
         private float ElapsedDuration = 0f;
         private Vector3 RectPosition = Vector3.zero;
 
-        private bool StartSequenceCompleted;
-        private bool StaticSequenceCompleted;
-        private bool FloatSequenceCompleted;
+        private bool FloatingTextSet = false;
+        private bool StartSequenceCompleted = false;
+        private bool StaticSequenceCompleted = false;
+        private bool FloatSequenceCompleted = false;
+        private bool FinishSequenceCompleted = false;
 
         public FloatingTextObserver(FloatingTextType floatingTextType, RaycastHit ray, FloatingTextObserverProps floatingTextObserverProps)
         {
@@ -106,6 +108,11 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                 SequenceTime = FloatingTextSettings.StartSequenceDuration + FloatingTextSettings.FloatingDuration + FloatingTextSettings.FinishSequenceDuration;
                 PercentageAccumulate = FloatingTextSettings.StartSequenceDuration / SequenceTime;
                 FloatDurationPercentage = FloatingTextSettings.FloatingDuration / SequenceTime;
+                FinishDurationPercentage = FloatingTextSettings.FinishSequenceDuration / SequenceTime;
+                if (FloatingTextSettings.FinishSequenceDuration > 0f)
+                {
+                    FinishSequenceDivMultiplier = 1 / FloatingTextSettings.FinishSequenceDuration;
+                }
 
                 BaseAlpha = FloatingTextInstance.canvasGroup.alpha;
                 
@@ -242,39 +249,58 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                 {
                     ElapsedDuration = 0f;
                     FloatSequenceCompleted = true;
+                }
+            }
+            else if (!FinishSequenceCompleted)
+            {
+                //?
+                //TODO: Remove UseTimes?
 
-                    // temp, complete
-                    if (FloatingTextInstance.UseTimes == -2)
+                bool completeFinishSequence = false;
+                if (FloatingTextSettings.FinishSequenceDuration > 0)
+                {
+                    ElapsedDuration += Time.deltaTime * FinishSequenceDivMultiplier;
+                    if (ElapsedDuration < 1f)
                     {
-                        Props.FloatingTextManager.RemoveFromReused(FloatingText);
+                        FloatingTextInstance.canvasGroup.alpha = BaseAlpha * FloatingTextSettings.FadeOutCurve.Evaluate(ElapsedDuration);
+                        float finishScaleCurveScale = FloatingTextSettings.FinishScaleCurve.Evaluate(ElapsedDuration);
+
+                        FloatingTextInstanceTransform.localScale = new Vector3(finishScaleCurveScale, finishScaleCurveScale, finishScaleCurveScale);
+
+                        float movePercentage;
+                        if (FloatingTextSettings.floatingDirectionType == FloatingTextSettings.FloatingType.CurveAxis)
+                        {
+                            movePercentage = PercentageAccumulate + (FinishDurationPercentage * ElapsedDuration);
+                        }
+                        else
+                        {
+                            movePercentage = 0f;
+                        }
+
+                        MoveFloatingText(movePercentage);
                     }
-                    FloatingTextInstance.UseTimes = -1;
+                    else
+                    {
+                        completeFinishSequence = true;
+                    }
+                }
+                else
+                {
+                    completeFinishSequence = true;
+                }
+                if (completeFinishSequence)
+                {
+                    ElapsedDuration = 0f;
+                    FinishSequenceCompleted = true;
+
+                    //???
+                    //if (FloatingTextInstance.UseTimes == -2)
+                    //{
+                    //    Props.FloatingTextManager.RemoveFromReused(FloatingText);
+                    //}
+                    //FloatingTextInstance.UseTimes = -1;
                     FloatingTextInstance.gameObject.SetActive(false);
                 }
-
-                //TODO: Migrate Finish Sequence
-                //finish/hide sequence
-                //d = 0;
-                //baseAlpha = canvasGroup.alpha;
-                //tempAcu = (settings.FinishSequenceDuration / sequenceTime);
-                //if (UseTimes == -2) bl_FloatingTextManager.Instance.RemoveFromReused(data);
-                //if (settings.FinishSequenceDuration > 0)
-                //    while (d < 1)
-                //    {
-                //        d += Time.deltaTime / settings.FinishSequenceDuration;
-                //        canvasGroup.alpha = baseAlpha * settings.FadeOutCurve.Evaluate(d);
-                //        RectTransformRef.localScale = Vector3.one * settings.FinishScaleCurve.Evaluate(d);
-
-                //        if (settings.floatingDirectionType == FloatingTextSettings.FloatingType.CurveAxis)
-                //            globalPercentage = percentageAcumulate + (tempAcu * d);
-
-                //        Move(data, globalPercentage);
-                //        yield return null;
-                //    }
-
-                //data.FinishCallback?.Invoke();
-                //Disable();
-
             }
         }
 
