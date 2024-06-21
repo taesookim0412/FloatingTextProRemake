@@ -21,10 +21,9 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
     }
     public class FloatingTextObserver
     {
-
         public ObserverStatus ObserverStatus = ObserverStatus.Active;
         private FloatingTextType FloatingTextType;
-        private RaycastHit Ray;
+        private Vector3 HitPositionWorld;
         private FloatingTextObserverProps Props;
         private FloatingText FloatingText;
         private bl_FloatingText FloatingTextInstance;
@@ -49,10 +48,10 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
         private bool FloatSequenceCompleted = false;
         private bool FinishSequenceCompleted = false;
 
-        public FloatingTextObserver(FloatingTextType floatingTextType, RaycastHit ray, FloatingTextObserverProps floatingTextObserverProps)
+        public FloatingTextObserver(FloatingTextType floatingTextType, Vector3 hitPositionWorld, FloatingTextObserverProps floatingTextObserverProps)
         {
             FloatingTextType = floatingTextType;
-            Ray = ray;
+            HitPositionWorld = hitPositionWorld;
             Props = floatingTextObserverProps;
         }
 
@@ -64,26 +63,155 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
                     Props.FloatingTextManager.FloatingTextSettingsDict.TryGetValue(FloatingTextType, out FloatingTextSettings) &&
                     Props.FloatingTextManager.FloatingTextInstancePools.TryGetValue(FloatingTextType, out PoolBag))
                 {
+                    // base font sizes:
+                    // Apex 38
+                    // Fortnite 50
+                    // The Division 38
+                    // LoL 38
+                    // Candy Crush 65
+                    // W Background 35
                     switch (FloatingTextType)
                     {
-                        case FloatingTextType.LeagueOfLegends:
-                            // Props.FloatingTextManager.ChangeTextPrefab(floatingTextPrefab);
-
+                        case FloatingTextType.Basic:
+                            //basefont: 38
                             FloatingText = new FloatingText(
-                                target: Ray.transform,
-                                position: Ray.point,
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 150)}",
+                                textColor: Color.white,
+                                positionOffset: Vector3.right,
+                                textSize: 40,
+                                outlineSize: 2.5f,
+                                outlineColor: new Color(1f, 0f, 0f, 0.7f),
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true
+                                );
+                            FloatingText.DontRewindOnReuse();
+                            break;
+                        case FloatingTextType.Fortnite:
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 150)}",
+                                textColor: Color.white,
+                                positionOffset: Vector3.zero,
+                                textSize: 50,
+                                outlineSize: 3,
+                                outlineColor: new Color(0, 0, 0, 0.7f),
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true
+                                );
+                            break;
+                        case FloatingTextType.TomClansysTheDivision:
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 90)}",
+                                textColor: Color.white,
+                                positionOffset: Vector3.zero,
+                                textSize: 38,
+                                outlineSize: 1,
+                                outlineColor: new Color(0, 0, 0, 1f),
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true);
+                            break;
+                        case FloatingTextType.LeagueOfLegends:
+                            // baseFont: 38
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
                                 text: $"{UnityEngine.Random.Range(500, 5000)}",
                                 textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
                                 positionOffset: Vector3.zero,
-                                textSize: UnityEngine.Random.Range(30, 50),
-                                reuseTimes: 0,
+                                textSize: 38 + UnityEngine.Random.Range(-10, 10),
                                 outlineSize: -1,
                                 outlineColor: Color.clear,
                                 FloatingTextSettings,
-                                finishCallback: null,
                                 flags: FloatingTextFlags.StickAtOriginPosition,
-                                internalOnly: new FloatingText.InternalProps(),
                                 isRemade: true);
+                            break;
+                        case FloatingTextType.CandyCrush:
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 90)}",
+                                textColor: new Color(0.3050465f, 1, 0.3050465f, 1),
+                                positionOffset: Vector3.zero,
+                                textSize: 65,
+                                outlineSize: -1,
+                                outlineColor: new Color(0.0993236f, 0.2264151f, 0.1272217f, 1),
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.None,
+                                isRemade: true);
+                            break;
+                        case FloatingTextType.CustomText1:
+                            int newCommentIndex = (Props.FloatingTextManager.CurrentComment + 1) % bl_FloatingTextManager.SampleComments.Length;
+                            Props.FloatingTextManager.CurrentComment = newCommentIndex;
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: Props.FloatingTextManager.IncrementSampleComment(),
+                                textColor: Color.white,
+                                positionOffset: Vector3.up * 1.5f,
+                                textSize: 38,
+                                outlineSize: 1,
+                                outlineColor: Color.black,
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true);
+                            break;
+                        case FloatingTextType.RandomText:
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 99)}",
+                                textColor: new Color(UnityEngine.Random.value,
+                                    UnityEngine.Random.value, UnityEngine.Random.value, 1f),
+                                positionOffset: Vector3.zero,
+                                textSize: 50 + UnityEngine.Random.Range(-15, 15),
+                                outlineSize: 1,
+                                outlineColor: Color.black,
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true);
+                            break;
+                        case FloatingTextType.SlideText:
+                            int newCommentIndex2 = (Props.FloatingTextManager.CurrentComment + 1) % bl_FloatingTextManager.SampleComments.Length;
+                            Props.FloatingTextManager.CurrentComment = newCommentIndex2;
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: Props.FloatingTextManager.IncrementSampleComment(),
+                                textColor: Color.white,
+                                positionOffset: Vector3.up * 1.5f,
+                                textSize: 35,
+                                outlineSize: -1,
+                                outlineColor: Color.clear,
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true);
+                            break;
+                        case FloatingTextType.ShakeText:
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 99)}",
+                                textColor: Color.black,
+                                positionOffset: Vector3.zero,
+                                textSize: 38,
+                                outlineSize: 0,
+                                outlineColor: Color.clear,
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true);
+                            break;
+                        case FloatingTextType.DropText:
+                            FloatingText = new FloatingText(
+                                position: HitPositionWorld,
+                                text: $"{UnityEngine.Random.Range(10, 99)}",
+                                textColor: Color.white,
+                                positionOffset: Vector3.zero,
+                                textSize: 38,
+                                outlineSize: 1,
+                                outlineColor: Color.clear,
+                                settings: FloatingTextSettings,
+                                flags: FloatingTextFlags.StickAtOriginPosition,
+                                isRemade: true);
+                            FloatingText.InvertHorizontalDirectionRandomly();
                             break;
                         default:
                             ObserverStatus = ObserverStatus.Remove;
@@ -351,6 +479,15 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
     }
     public enum FloatingTextType
     {
-        LeagueOfLegends
+        Basic,
+        Fortnite,
+        TomClansysTheDivision,
+        LeagueOfLegends,
+        CandyCrush,
+        CustomText1,
+        RandomText,
+        SlideText,
+        ShakeText,
+        DropText
     }
 }

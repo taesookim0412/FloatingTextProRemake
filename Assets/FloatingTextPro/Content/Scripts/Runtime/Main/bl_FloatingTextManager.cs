@@ -9,6 +9,10 @@ using Assets.Crafter.Components.Models;
 
 public class bl_FloatingTextManager : MonoBehaviour
 {
+    public static readonly string[] SampleComments = new string[] { "Awesome Comment!", "Inside cornflakes", "You never hear about wind farmers...", "No luck, all skills", "Blow me!" , "Game Over."
+        , "Everything went silky smooth", "You can start creating faster", "Side hustle came to an end.", "No contribution is ever too small.", "Share with the world", "Pupusas"};
+    public int CurrentComment = 0;
+
     #region Public members
     [SerializeField]
     public FloatingTextSettings[] FloatingTextSettings;
@@ -56,20 +60,47 @@ public class bl_FloatingTextManager : MonoBehaviour
             int firstCharIdx = prefabName.IndexOf('[') + 1;
             string textType = prefabName.Substring(firstCharIdx, prefabName.IndexOf(']') - firstCharIdx);
 
-            FloatingTextType prefabType;
+            List<FloatingTextType> prefabTypes = new List<FloatingTextType>();
             switch (textType)
             {
+                // [0]
+                case "Apex":
+                    prefabTypes.Add(FloatingTextType.Basic);
+                    break;
+                // [1]
+                case "Fortnite":
+                    prefabTypes.Add(FloatingTextType.Fortnite);
+                    prefabTypes.Add(FloatingTextType.RandomText);
+                    break;
+                // [2]
+                case "The Division":
+                    prefabTypes.Add(FloatingTextType.TomClansysTheDivision);
+                    prefabTypes.Add(FloatingTextType.CustomText1);
+                    break;
+                // [3]
                 case "League Of Legends":
-                    prefabType = FloatingTextType.LeagueOfLegends;
+                    prefabTypes.Add(FloatingTextType.LeagueOfLegends);
+                    prefabTypes.Add(FloatingTextType.ShakeText);
+                    prefabTypes.Add(FloatingTextType.DropText);
+                    break;
+                // [4]
+                case "Candy Crush":
+                    prefabTypes.Add(FloatingTextType.CandyCrush);
+                    break;
+                // [5]
+                case "W Background":
+                    prefabTypes.Add(FloatingTextType.SlideText);
                     break;
                 default:
                     //???
                     continue;
             }
-
-            floatingTextPrefabsDict[prefabType] = FloatingTextPrefabs[i];
-            floatingTextInstancePools[prefabType] = new PoolBagDco<bl_FloatingText>(FloatingTextPrefabs[i], 
-                capacity: 30);
+            foreach (FloatingTextType floatingTextType in prefabTypes)
+            {
+                floatingTextPrefabsDict[floatingTextType] = FloatingTextPrefabs[i];
+                floatingTextInstancePools[floatingTextType] = new PoolBagDco<bl_FloatingText>(FloatingTextPrefabs[i],
+                    capacity: 30);
+            }
         }
         FloatingTextPrefabsDict = floatingTextPrefabsDict;
         FloatingTextInstancePools = floatingTextInstancePools;
@@ -81,20 +112,61 @@ public class bl_FloatingTextManager : MonoBehaviour
             int firstCharIdx = settingsName.IndexOf('[') + 1;
             string textType = settingsName.Substring(firstCharIdx, settingsName.IndexOf(']') - firstCharIdx);
 
-            FloatingTextType prefabType;
+            List<FloatingTextType> prefabTypes = new List<FloatingTextType>();
             switch (textType)
             {
+                //case "Default":
+                //    //prefabTypes.Add()
+                //    break;
+                case "Apex Legends":
+                    prefabTypes.Add(FloatingTextType.Basic);
+                    break;
+                case "Fortnite":
+                    prefabTypes.Add(FloatingTextType.Fortnite);
+                    break;
+                case "The Division":
+                    prefabTypes.Add(FloatingTextType.TomClansysTheDivision);
+                    break;
                 case "League Of Legends":
-                    prefabType = FloatingTextType.LeagueOfLegends;
+                    prefabTypes.Add(FloatingTextType.LeagueOfLegends);
+                    break;
+                case "Candy Crush":
+                    prefabTypes.Add(FloatingTextType.CandyCrush);
+                    break;
+                case "Comments":
+                    prefabTypes.Add(FloatingTextType.CustomText1);
+                    break;
+                case "Shake":
+                    prefabTypes.Add(FloatingTextType.ShakeText);
+                    break;
+                case "Random":
+                    prefabTypes.Add(FloatingTextType.RandomText);
+                    break;
+                case "Left Slide":
+                    prefabTypes.Add(FloatingTextType.SlideText);
+                    break;
+                case "Drop":
+                    prefabTypes.Add(FloatingTextType.DropText);
                     break;
                 default:
-                    //???
+                    // Default is not added.
+                    // ???
                     continue;
             }
 
-            floatingTextSettingsDict[prefabType] = FloatingTextSettings[i];
+            foreach (FloatingTextType floatingTextType in prefabTypes)
+            {
+                floatingTextSettingsDict[floatingTextType] = FloatingTextSettings[i];
+            }
         }
         FloatingTextSettingsDict = floatingTextSettingsDict;
+    }
+
+    public string IncrementSampleComment()
+    {
+        CurrentComment = (CurrentComment + 1) % bl_FloatingTextManager.SampleComments.Length;
+
+        return SampleComments[CurrentComment];
     }
 
     private void Update()
@@ -117,9 +189,9 @@ public class bl_FloatingTextManager : MonoBehaviour
             }
         }
     }
-    public void AddFloatingTextObserver(FloatingTextType floatingTextType, RaycastHit ray)
+    public void AddFloatingTextObserver(FloatingTextType floatingTextType, Vector3 hitPositionWorld)
     {
-        FloatingTextObservers.Add(new FloatingTextObserver(floatingTextType, ray, FloatingTextObserverProps));
+        FloatingTextObservers.Add(new FloatingTextObserver(floatingTextType, hitPositionWorld, FloatingTextObserverProps));
     }
 
     /// <summary>

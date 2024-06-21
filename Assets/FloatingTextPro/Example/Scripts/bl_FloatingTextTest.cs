@@ -35,74 +35,60 @@ namespace Lovatto.FloatingTextAsset {
                 }
             }
         }
-
         public void BasicText(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[0]);
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.Basic, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[0]);
 
-            new FloatingText($"{Random.Range(10, 150)}")
-              .SetSettings("apex")
-              .SetPositionOffset(Vector3.right)
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .StickAtOriginWorldPosition()
-              .SetOutlineColor(new Color(1,0,0,0.7f))
-              .SetOutlineSize(2.5f)
-              .DontRewindOnReuse()
-              .SetReuses(3)
-              .Show();
+            //new FloatingText($"{Random.Range(10, 150)}")
+            //  .SetSettings("apex")
+            //  .SetPositionOffset(Vector3.right)
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .StickAtOriginWorldPosition()
+            //  .SetOutlineColor(new Color(1, 0, 0, 0.7f))
+            //  .SetOutlineSize(2.5f)
+            //  .DontRewindOnReuse()
+            //  .SetReuses(3)
+            //  .Show();
         }
 
         public void FortniteText(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[1]);
-            new FloatingText($"{Random.Range(10, 150)}")
-              .SetSettings("fortnite")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .StickAtOriginWorldPosition()
-              .SetOutlineColor(new Color(0, 0, 0, 0.7f))
-              .SetOutlineSize(3)
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.Fortnite, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[1]);
+            //new FloatingText($"{Random.Range(10, 150)}")
+            //  .SetSettings("fortnite")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .StickAtOriginWorldPosition()
+            //  .SetOutlineColor(new Color(0, 0, 0, 0.7f))
+            //  .SetOutlineSize(3)
+            //  .Show();
         }
 
         public void TomClansysTheDivision(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[2]);
-            new FloatingText($"{Random.Range(10, 90)}")
-              .SetSettings("division")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .StickAtOriginWorldPosition()
-              .SetOutlineColor(new Color(0, 0, 0, 1f))
-              .SetOutlineSize(1)
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.TomClansysTheDivision, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[2]);
+            //new FloatingText($"{Random.Range(10, 90)}")
+            //  .SetSettings("division")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .StickAtOriginWorldPosition()
+            //  .SetOutlineColor(new Color(0, 0, 0, 1f))
+            //  .SetOutlineSize(1)
+            //  .Show();
         }
 
         public void LeagueOfLegends(RaycastHit ray)
         {
-            FloatingTextManager.AddFloatingTextObserver(FloatingTextType.LeagueOfLegends, ray);
-            // This can't be changed because the demo will raycast 
-            //bl_FloatingTextManager.Instance.ChangeTextPrefab(floatingTextPrefab);
-
-
-            //FloatingText floatingText = new FloatingText(
-            //    target: ray.transform,
-            //    position: ray.point,
-            //    text: $"{Random.Range(500, 5000)}",
-            //    textColor: new Color(0.1462264f, 0.8359416f, 1f, 1),
-            //    positionOffset: Vector3.zero,
-            //    extraTextSize: Random.Range(-10, 10),
-            //    reuseTimes: 0,
-            //    outlineSize: -1,
-            //    outlineColor: Color.clear,
-            //    floatingTextSettings,
-            //    finishCallback: null,
-            //    flags: FloatingTextFlags.StickAtOriginPosition,
-            //    internalOnly: new FloatingText.InternalProps(),
-            //    isRemade: true);
-            //floatingText.Show();
-
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.LeagueOfLegends, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[3]);
             //new FloatingText($"{Random.Range(10, 90)}")
             //  .SetSettings("lol")
             //  .SetTarget(ray.transform)
@@ -115,86 +101,96 @@ namespace Lovatto.FloatingTextAsset {
 
         public void CandyCrush(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[4]);
-            new FloatingText($"{Random.Range(10, 90)}")
-              .SetSettings("candy")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .SetTextColor(new Color(0.3050465f, 1, 0.3050465f, 1))
-              .SetOutlineColor(new Color(0.0993236f, 0.2264151f, 0.1272217f, 1))
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.CandyCrush, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[4]);
+            //new FloatingText($"{Random.Range(10, 90)}")
+            //  .SetSettings("candy")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .SetTextColor(new Color(0.3050465f, 1, 0.3050465f, 1))
+            //  .SetOutlineColor(new Color(0.0993236f, 0.2264151f, 0.1272217f, 1))
+            //  .Show();
         }
 
-        string[] sampleComments = new string[] { "Awesome Comment!", "Inside cornflakes", "You never hear about wind farmers...", "No luck, all skills", "Blow me!" , "Game Over."
-        , "Everything went silky smooth", "You can start creating faster", "Side hustle came to an end.", "No contribution is ever too small.", "Share with the world", "Pupusas"};
-        private int currentComment = 0;
+
         public void CustomText1(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[2]);
-            currentComment = (currentComment + 1) % sampleComments.Length;
-            new FloatingText(sampleComments[currentComment])
-              .SetSettings("comment")
-              .SetTarget(ray.transform)
-              .SetPositionOffset(Vector3.up * 1.5f)
-              .SetOutlineColor(Color.black)
-              .SetOutlineSize(1)
-              .StickAtOriginWorldPosition()
-              .ReuseWhileAlive()
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.CustomText1, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[2]);
+            //currentComment = (currentComment + 1) % sampleComments.Length;
+            //new FloatingText(sampleComments[currentComment])
+            //  .SetSettings("comment")
+            //  .SetTarget(ray.transform)
+            //  .SetPositionOffset(Vector3.up * 1.5f)
+            //  .SetOutlineColor(Color.black)
+            //  .SetOutlineSize(1)
+            //  .StickAtOriginWorldPosition()
+            //  .ReuseWhileAlive()
+            //  .Show();
         }
 
         public void RandomText(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[1]);
-            new FloatingText($"{Random.Range(10, 99)}")
-              .SetSettings("random")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .SetTextColor(new Color(Random.value, Random.value, Random.value,1))
-              .SetExtraTextSize(Random.Range(-15,15))
-              .SetOutlineColor(Color.black)
-              .SetOutlineSize(1)
-              .StickAtOriginWorldPosition()
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.RandomText, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[1]);
+            //new FloatingText($"{Random.Range(10, 99)}")
+            //  .SetSettings("random")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .SetTextColor(new Color(Random.value, Random.value, Random.value, 1))
+            //  .SetExtraTextSize(Random.Range(-15, 15))
+            //  .SetOutlineColor(Color.black)
+            //  .SetOutlineSize(1)
+            //  .StickAtOriginWorldPosition()
+            //  .Show();
         }
 
         public void SlideText(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[5]);
-            currentComment = (currentComment + 1) % sampleComments.Length;
-            new FloatingText(sampleComments[currentComment])
-              .SetSettings("slide-left")
-              .SetTarget(ray.transform)
-              .SetPositionOffset(Vector3.up * 1.5f)
-              .ReuseWhileAlive()
-              .StickAtOriginWorldPosition()
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.SlideText, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[5]);
+            //currentComment = (currentComment + 1) % sampleComments.Length;
+            //new FloatingText(sampleComments[currentComment])
+            //  .SetSettings("slide-left")
+            //  .SetTarget(ray.transform)
+            //  .SetPositionOffset(Vector3.up * 1.5f)
+            //  .ReuseWhileAlive()
+            //  .StickAtOriginWorldPosition()
+            //  .Show();
         }
 
         public void ShakeText(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[3]);
-            new FloatingText($"{Random.Range(10, 99)}")
-              .SetSettings("shake")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .SetTextColor(Color.black)
-              .SetOutlineSize(0)
-              .StickAtOriginWorldPosition()
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.ShakeText, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[3]);
+            //new FloatingText($"{Random.Range(10, 99)}")
+            //  .SetSettings("shake")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .SetTextColor(Color.black)
+            //  .SetOutlineSize(0)
+            //  .StickAtOriginWorldPosition()
+            //  .Show();
         }
 
         public void DropText(RaycastHit ray)
         {
-            bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[3]);
-            new FloatingText($"{Random.Range(10, 99)}")
-              .SetSettings("drop")
-              .SetTarget(ray.transform)
-              .SetPosition(ray.point)
-              .SetOutlineSize(1)              
-              .InvertHorizontalDirectionRandomly()
-              .StickAtOriginWorldPosition()
-              .Show();
+            FloatingTextManager.AddFloatingTextObserver(
+                FloatingTextType.DropText, ray.point);
+            //bl_FloatingTextManager.Instance.ChangeTextPrefab(textPrefabs[3]);
+            //new FloatingText($"{Random.Range(10, 99)}")
+            //  .SetSettings("drop")
+            //  .SetTarget(ray.transform)
+            //  .SetPosition(ray.point)
+            //  .SetOutlineSize(1)
+            //  .InvertHorizontalDirectionRandomly()
+            //  .StickAtOriginWorldPosition()
+            //  .Show();
         }
     }
 }

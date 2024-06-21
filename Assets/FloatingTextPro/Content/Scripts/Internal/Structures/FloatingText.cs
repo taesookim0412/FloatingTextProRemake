@@ -9,6 +9,7 @@ using Lovatto.FloatingTextAsset;
 /// </summary>
 public struct FloatingText
 {
+    // Not used in Remade, replaced by new instance pool.
     public Transform Target { get; set; }
     public Vector3 Position { get; set; }
     public string Text { get; set; }
@@ -34,26 +35,26 @@ public struct FloatingText
         public bool InvertHorizontalDirection { get; set; }
     }
 
-    public FloatingText(Transform target, Vector3 position, string text, Color textColor, Vector3 positionOffset, 
-        int textSize, int reuseTimes, float outlineSize, Color outlineColor, FloatingTextSettings settings, 
-        Action finishCallback, FloatingTextFlags flags, InternalProps internalOnly, bool isRemade)
+    public FloatingText(Vector3 position, string text, Color textColor, Vector3 positionOffset, 
+        int textSize, float outlineSize, Color outlineColor, FloatingTextSettings settings, 
+        FloatingTextFlags flags, bool isRemade)
     {
-        Target = target;
         Position = position;
         Text = text;
         TextColor = textColor;
         PositionOffset = positionOffset;
         TextSize = textSize;
-        ReuseTimes = reuseTimes;
         OutlineSize = outlineSize;
         OutlineColor = outlineColor;
         Settings = settings;
-        FinishCallback = finishCallback;
         Flags = flags;
-        InternalOnly = internalOnly;
+        InternalOnly = new InternalProps();
         IsRemade = isRemade;
 
+        Target = null;
         ExtraTextSize = 0;
+        FinishCallback = null;
+        ReuseTimes = 0;
     }
 
 

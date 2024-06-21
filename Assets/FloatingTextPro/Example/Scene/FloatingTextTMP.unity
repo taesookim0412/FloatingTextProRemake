@@ -5559,42 +5559,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2043791950015499020, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: textTemplate
-      value: 
-      objectReference: {fileID: 5164862589071869307, guid: 8dbc1e88bc7ed8a4b95d4a0721dfd8b1, type: 3}
     - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
       propertyPath: m_playerCamera
       value: 
       objectReference: {fileID: 2065523261}
-    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: FloatingTextSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
-    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: FloatingTextPrefabs.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: FloatingTextSettings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: 'FloatingTextPrefabs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1349822499584374776, guid: c5210423697e7064ea2485b31831a3a1, type: 3}
-    - target: {fileID: 2043791950599946338, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: 'FloatingTextSettings.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4bd9bd65b7cbc694384c544b3f178c69, type: 2}
-    - target: {fileID: 2043791950599946339, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2043791950599946339, guid: 5907fb216bf61f548bf36c6c362aac71, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
