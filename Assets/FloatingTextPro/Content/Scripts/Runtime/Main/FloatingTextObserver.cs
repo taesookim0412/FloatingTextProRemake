@@ -21,6 +21,8 @@ namespace Assets.FloatingTextPro.Content.Scripts.Runtime.Main
     }
     public class FloatingTextObserver
     {
+        public static readonly int FloatingTextTypeLength = Enum.GetNames(typeof(FloatingTextType)).Length;
+
         public ObserverStatus ObserverStatus = ObserverStatus.Active;
         private FloatingTextType FloatingTextType;
         private Vector3 HitPositionWorld;

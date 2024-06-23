@@ -52,8 +52,8 @@ public class bl_FloatingTextManager : MonoBehaviour
     {
         FloatingTextObserverProps = new FloatingTextObserverProps(this);
 
-        Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>> floatingTextInstancePools = new Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>>(1);
-        Dictionary<FloatingTextType, bl_FloatingText>  floatingTextPrefabsDict = new Dictionary<FloatingTextType, bl_FloatingText>(1);
+        Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>> floatingTextInstancePools = new Dictionary<FloatingTextType, PoolBagDco<bl_FloatingText>>(FloatingTextObserver.FloatingTextTypeLength);
+        Dictionary<FloatingTextType, bl_FloatingText>  floatingTextPrefabsDict = new Dictionary<FloatingTextType, bl_FloatingText>(FloatingTextObserver.FloatingTextTypeLength);
         for (int i = 0; i < FloatingTextPrefabs.Length; i++)
         {
             string prefabName = FloatingTextPrefabs[i].name;
@@ -105,7 +105,7 @@ public class bl_FloatingTextManager : MonoBehaviour
         FloatingTextPrefabsDict = floatingTextPrefabsDict;
         FloatingTextInstancePools = floatingTextInstancePools;
 
-        Dictionary<FloatingTextType, FloatingTextSettings> floatingTextSettingsDict = new Dictionary<FloatingTextType, FloatingTextSettings>(1);
+        Dictionary<FloatingTextType, FloatingTextSettings> floatingTextSettingsDict = new Dictionary<FloatingTextType, FloatingTextSettings>(FloatingTextObserver.FloatingTextTypeLength);
         for (int i = 0; i < FloatingTextSettings.Length; i++)
         {
             string settingsName = FloatingTextSettings[i].name;
